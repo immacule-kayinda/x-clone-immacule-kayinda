@@ -13,15 +13,15 @@ function ActionBar() {
     { label: "Profile", icon: faUser },
     { label: "Messages", icon: faMessage },
     { label: "Notifications", icon: faBell },
-    { label: "More", icon: faEllipsis}
+    { label: "More", icon: faEllipsis },
   ];
 
   return (
-    <div className="flex w-96 sticky top-1 border pt-5 flex-col gap-3">
+    <div className="flex bg-black fixed w-full bottom-0 justify-center md:flex-col md:gap-3">
       {actionList.map((action) => (
         <ActionItem key={action.label} {...action} />
       ))}
-      <button className="px-5 py-3 bg-blue-400 hover:bg-blue-500 rounded-full">
+      <button className="hidden md:block bg-blue-400 hover:bg-blue-500 rounded-full">
         Tweet
       </button>
     </div>

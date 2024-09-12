@@ -17,7 +17,7 @@ export default function Tweet({ username, name, publishedAt, content}: TweetProp
           <h1 className="font-bold">{name}</h1>
           <h2 className="text-neutral-500">{`${username}. 7oct`}</h2>
         </div>
-        <p>
+        <p className="text-xl">
           {content}
         </p>
       </div>

@@ -3,8 +3,8 @@ import MainSection from "./components/MainSection";
 
 export default function App() {
   return (
-    <div className="w-8/12 flex m-auto">
-      <ActionBar />
+    <div className="md:w-10/12 w-full flex flex-row md:flex-col m-auto">
+      {/* <ActionBar /> */}
       <MainSection />
       <ActionBar />
     </div>

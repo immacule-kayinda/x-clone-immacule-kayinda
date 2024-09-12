@@ -4,7 +4,7 @@ import { faker } from '@faker-js/faker';
 export default function TweetList() {
   return (
     <>
-      {Array(10)
+      {Array(5)
         .fill("")
         .map((_, index) => {
         const firstName = faker.name.firstName();
