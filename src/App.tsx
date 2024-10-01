@@ -11,7 +11,7 @@ export type tweetsType = {
   username: string;
 };
 
-const initialState = Array(10000)
+const initialState = Array(100)
   .fill("")
   .map(() => {
     const firstName = faker.person.firstName();
@@ -31,7 +31,7 @@ const initialState = Array(10000)
 export default function App() {
   const [tweets, setTweets] = useState<tweetsType[]>(initialState);
   return (
-    <div className="w-full w-fit flex-1 flex flex-row bg-black mt-2 m-auto md:gap-5 lg:w-10/12">
+    <div className="w-full md:w-fit flex-1 flex flex-row bg-black mt-2 m-auto md:gap-5 lg:w-10/12">
       <ActionBar />
       <MainSection setTweets={setTweets} tweets={tweets} />
       <ActionBar />
