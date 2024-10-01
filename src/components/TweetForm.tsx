@@ -1,6 +1,26 @@
-function TweetForm() {
+import { tweetsType } from "../App";
+
+function TweetForm({
+  tweets,
+  setTweets,
+}: {
+  tweets: tweetsType[];
+  setTweets: React.Dispatch<React.SetStateAction<tweetsType[]>>;
+}) {
+  const handleOnSubmit = () => {
+    const newTweet: tweetsType = {
+      id: crypto.randomUUID(),
+      name: "nom du type",
+      content: "Contenu du tweet",
+      username: "Nom d'utilisateur",
+      publishedAt: new Date().toISOString(),
+    };
+    setTweets([newTweet, ...tweets]);
+    // Reset the form
+    document.querySelector<HTMLFormElement>("form")?.reset();
+  };
   return (
-    <div className="p-4 h-50">
+    <form className="p-4 h-50">
       <div className="flex gap-2">
         <div className="bg-neutral-500 w-16 h-16 text-center justify-center items-center rounded-full">
           picture
@@ -24,7 +44,7 @@ function TweetForm() {
           </div>
         </div>
       </div>
-    </div>
+    </form>
   );
 }
 
