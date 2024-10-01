@@ -19,12 +19,12 @@ function ActionBar() {
   ];
 
   return (
-    <div className="flex border-t-neutral-50 lg:w-48 md:w-fit md:border-none lg:max-w-prose sticky  w-full bottom-0 justify-center md:justify-start md:flex-col md:gap-3 lg:top-0 lg:h-full">
-      <div className="bg-black py-3 md:rounded-lg md:py-10 lg:gap-y-4 md:w-fit lg:w-full md:px-5 w-full md:gap-y-3 flex md:justify-start justify-evenly md:flex-col lg:sticky lg:top-0">
+    <div className="flex border-t-neutral-50 lg:w-48 md:w-fit md:border-none lg:max-w-prose fixed lg:w-10/12 w-full bottom-0 justify-center md:justify-start md:flex-col md:gap-3 md:relative">
+      <div className="bg-black py-3 md:rounded-lg md:py-10 lg:gap-y-4 md:w-fit lg:w-full md:px-5 w-full md:gap-y-3 flex md:justify-start justify-evenly md:flex-col lg:fixed" >
         {actionList.map((action) => (
           <ActionItem key={action.label} {...action} />
         ))}
-        <button className="hidden md:block bg-blue-400 lg:w-auto md:w-12 md:h-12 hover:bg-blue-500 rounded-full">
+        <button className="hidden md:block bg-blue-400 lg:w-auto md:w-12 md:h-12 hover:bg-blue-500  rounded-full">
           Tweet
         </button>
       </div>
