@@ -35,7 +35,6 @@ export type tweetUser = {
   id: string;
   content: string;
   publishedAt: string;
-  image: string;
+  image?: string;
   user?: userType;
-  like: number;
 };

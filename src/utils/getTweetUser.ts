@@ -6,14 +6,13 @@ export const getTweetsUser = (
 ): tweetUser[] => {
   return tweets.map((tweet: tweetsType) => {
     const user = users.find((u) => u.id === tweet.userId);
-    const { content, id, publishedAt, image, likes } = tweet;
+    const { content, id, publishedAt, image } = tweet;
     return {
       user,
       content,
       id,
       image,
       publishedAt,
-      likes,
     };
   });
 };
