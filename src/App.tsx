@@ -10,7 +10,7 @@ export default function App() {
   const [users] = useState<userType[]>(initialUserState);
   const [likes, setLikes] = useState<tweetLikeType[]>(initialLikesState)
   return (
-    <div className="w-full md:w-fit flex-1 flex flex-row bg-black mt-2 m-auto md:gap-5 lg:w-10/12">
+    <div className="w-full md:w-fit flex-1 flex flex-row justify-center bg-black md:mt-2 lg:m-auto md:gap-5 lg:w-10/12">
       <ActionBar />
       <Outlet
         context={{ users, tweets, setTweets,likes, setLikes } satisfies contextTweetType}

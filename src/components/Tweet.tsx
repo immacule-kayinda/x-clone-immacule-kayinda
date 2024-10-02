@@ -15,13 +15,11 @@ export default function Tweet({
 }) {
   const [isLiked, setIsLiked] = useState<boolean>(false);
   const { id, content, publishedAt, image, user } = tweetUser;
-  const [postLikes] = useState<tweetLikeType[]>(
+  const [postLikes, setPostLikes] = useState<number>(
     likes.filter((like) => {
-      return like.tweetId === id;
-    })
+      return like.tweetId === id && like.isLiked;
+    }).length
   );
-
-  console.log(postLikes);
 
   return (
     <div className="flex gap-4 p-3" id={id}>
@@ -57,19 +55,24 @@ export default function Tweet({
               onClick={() => {
                 setIsLiked(!isLiked);
                 setLikes((prevLikes) => {
-                  const like = prevLikes.find((like) => !like.isLiked);
+                  const like = prevLikes.find(
+                    (like) => like.isLiked != isLiked
+                  );
                   if (like) {
                     like.isLiked = !like.isLiked;
                     return [...prevLikes, like];
                   }
                   return prevLikes;
                 });
+                setPostLikes((prevPostLikes) => {
+                  return prevPostLikes + (!isLiked ? 1 : -1);
+                });
               }}
               className={`${
                 isLiked ? "text-red-500" : "text-red-50"
               } bg-black text-xl`}
             />
-            {postLikes.length}
+            {postLikes}
           </div>
           <Icon icon={"mdi:repeat-variant"} className="text-2xl" />
           <Icon icon={"mdi:comment"} className="text-2xl" />
