@@ -1,26 +1,23 @@
-import { tweetsType } from "../App";
-
+import { tweetsType } from "../utils/types";
 function TweetForm({
-  tweets,
   setTweets,
 }: {
-  tweets: tweetsType[];
   setTweets: React.Dispatch<React.SetStateAction<tweetsType[]>>;
 }) {
   const handleOnSubmit = () => {
     const newTweet: tweetsType = {
       id: crypto.randomUUID(),
-      name: "nom du type",
       content: "Contenu du tweet",
-      username: "Nom d'utilisateur",
       publishedAt: new Date().toISOString(),
+      userId: "qkdflkqsdjflkqsdjfqsdkjf",
+      image: "/vite.svg",
     };
-    setTweets([newTweet, ...tweets]);
+    setTweets((tweets) => [newTweet, ...tweets]);
     // Reset the form
     document.querySelector<HTMLFormElement>("form")?.reset();
   };
   return (
-    <form className="p-4 h-50">
+    <form onSubmit={handleOnSubmit} className="p-4 h-50">
       <div className="flex gap-2">
         <div className="bg-neutral-500 w-16 h-16 text-center justify-center items-center rounded-full">
           picture
